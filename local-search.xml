@@ -3,18 +3,5 @@
   
   
   
-  <entry>
-    <title></title>
-    <link href="/2021/08/24/helloworld/"/>
-    <url>/2021/08/24/helloworld/</url>
-    
-    <content type="html"><![CDATA[<h2 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello,world!"></a>Hello,world!</h2><p>测试文章</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayHello</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Hello,world!&#x27;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
   
 </search>
