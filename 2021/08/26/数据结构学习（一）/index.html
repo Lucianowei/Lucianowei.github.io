@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="向阳">
+  <meta name="keywords" content="">
+  
+  <title>数据结构与算法学习（一） - 向阳の小窝</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>向阳の小窝</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/banner_img.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="数据结构与算法学习（一）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-26 16:37" pubdate>
+        2021年8月26日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">数据结构与算法学习（一）</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年8月26日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="一、什么是数据结构？"><a href="#一、什么是数据结构？" class="headerlink" title="一、什么是数据结构？"></a>一、什么是数据结构？</h2><ol>
+<li><strong>数据对象</strong>在计算机中的组织方式<ul>
+<li>逻辑结构<ul>
+<li>线性结构：一对一</li>
+<li>树型结构：一对多</li>
+<li>图：多对多</li>
+</ul>
+</li>
+<li>物理存储结构：逻辑结构在计算机中如何存放</li>
+</ul>
+</li>
+<li>数据对象必定与加在其上的<strong>操作</strong>相关联</li>
+<li>实现这些操作所用的方法叫做<strong>算法</strong></li>
+</ol>
+<h2 id="二、如何描述数据结构？"><a href="#二、如何描述数据结构？" class="headerlink" title="二、如何描述数据结构？"></a>二、如何描述数据结构？</h2><h3 id="数据类型抽象（Abstract-Data-Type）"><a href="#数据类型抽象（Abstract-Data-Type）" class="headerlink" title="数据类型抽象（Abstract Data Type）"></a>数据类型抽象（Abstract Data Type）</h3><ol>
+<li>数据类型<ul>
+<li>数据对象集</li>
+<li>数据集合相关联的操作集</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>其实在C语言中这两个东西是分开处理的，但是在 C++ 和 Java 等 OO 语言中，它们是封装在一个类里的。</p>
+</blockquote>
+<ol start="2">
+<li><p>抽象：描述数据类型的方法不依赖于具体实现</p>
+<ul>
+<li>与存放数据的机器无关</li>
+<li>与数据存储的物理结构无关</li>
+<li>与实现操作的算法和编程语言均无关</li>
+</ul>
+</li>
+<li><p>例：矩阵的 ADT 定义</p>
+<ul>
+<li>类型名称：矩阵（Matrix）</li>
+<li>数据对象集：一个 M x N 的矩阵 A <sub>MxN</sub> = (a<sub>ij</sub>) 由 M x N 个三元组&lt;a, i, j&gt;构成，其中 a 是矩阵元素的值，i 是元素所在的行号，j 是元素所在的列号。</li>
+<li>操作集<ul>
+<li>Matrix Creat(int M, int N): 返回一个 M x N 的空矩阵</li>
+<li>int GetRow(Matrix A): 返回 A 的行数</li>
+<li>int GetCol(Matrix A): 返回 A 的列数</li>
+<li>ElementType GetEntry(Matrix A, int i, int j): 返回矩阵第 i 行，第 j 列的元素</li>
+<li>Matrix Add(Matrix A, Matrix B): 如果 A、B 行列数一致，返回它们的和，否则返回错误信息</li>
+<li>Matrix Multiply(Matrix A, Matrix B): 如果 A 的行数等于 B 的列数，返回它们的积，否则返回错误信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、什么是算法？"><a href="#三、什么是算法？" class="headerlink" title="三、什么是算法？"></a>三、什么是算法？</h2><ol>
+<li>一个有限指令集<ul>
+<li>有充分明确的目标</li>
+<li>计算机能处理的范围之内</li>
+<li>描述不依赖于计算机语言和具体实现步骤</li>
+</ul>
+</li>
+<li>一定有输出，接受一些输入</li>
+<li>有限个步骤</li>
+</ol>
+<h2 id="四、什么是好的算法？"><a href="#四、什么是好的算法？" class="headerlink" title="四、什么是好的算法？"></a>四、什么是好的算法？</h2><ol>
+<li><p>空间复杂度低</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> 打印 1 ~ N</span><br><span class="hljs-comment"> 1.递归</span><br><span class="hljs-comment"> 2.for 循环</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PrintN</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br> <span class="hljs-keyword">if</span>(n != <span class="hljs-number">0</span>)<br> &#123;<br>  PrintN(n - <span class="hljs-number">1</span>);<br>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, n);<br> &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">PrintN</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d&quot;</span>, i);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>时间复杂度低</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> 计算多项式的值</span><br><span class="hljs-comment"> 1.pow</span><br><span class="hljs-comment"> 2.提取x</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">f1</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">double</span> a[], <span class="hljs-keyword">double</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">double</span> p = a[<span class="hljs-number">0</span>];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>    &#123;<br>        p += a[i] * <span class="hljs-built_in">pow</span>(x, i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">double</span> <span class="hljs-title">f2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">double</span> a[], <span class="hljs-keyword">double</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">double</span> p = a[n];<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = n; i &gt; <span class="hljs-number">0</span>; i--)<br>    &#123;<br>        p = a[i - <span class="hljs-number">1</span>] + x * p;<br>    &#125;<br>    <span class="hljs-keyword">return</span> p;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p> &emsp;&emsp;上面两个算法区别在于 for 循环里的那个语句，其实上面这个语句是因为有 pow 函数而多做了一些乘法。<br> &emsp;&emsp;分析算法的效率时，我们经常关注的是<strong>最坏情况复杂度</strong>和<strong>平均复杂度</strong>，但是比较容易分析的是最坏情况复杂度.</p>
+</li>
+<li><p>复杂度的渐近表示法</p>
+<ul>
+<li>O(n): 上界</li>
+<li>Ω(n): 下界</li>
+</ul>
+<p> 常见 n:</p>
+<ul>
+<li>1</li>
+<li>log n</li>
+<li>n</li>
+<li>n log n</li>
+<li>n<sup>2</sup></li>
+<li>n<sup>3</sup></li>
+<li>2<sup>n</sup></li>
+<li>n!</li>
+</ul>
+</li>
+<li><p>例：最大子列和问题  </p>
+</li>
+</ol>
+<ul>
+<li><p>暴力解法：O(n<sup>3</sup>)</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MaxSubseqSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> ThisSum, MaxSum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i; j &lt; n; j++)<br>        &#123;<br>            ThisSum = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k = i; k &lt;= j; k++)<br>                ThisSum += a[k];<br>            <span class="hljs-keyword">if</span>(ThisSum &gt; MaxSum)<br>                MaxSum = ThisSum;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> MaxSum;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>优化（穷举法）：O(n<sup>2</sup>)</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MaxSubseqSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> ThisSum, MaxSum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        ThisSum = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i; j &lt; n; j++)<br>        &#123;<br>            ThisSum += a[j];<br>            <span class="hljs-keyword">if</span>(ThisSum &gt; MaxSum)<br>                MaxSum = ThisSum;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> MaxSum;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>  &emsp;&emsp;至此，算法时间复杂度已经变成 O(n<sup>2</sup>)，但是作为一个程序员，看到 O(n<sup>2</sup>)的算法要时刻去想它能不能变成 O(nlogn) 的算法.  </p>
+</li>
+<li><p>分而治之（分治法）：O(nlogn)</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/* 返回三个数之中的最大数 */</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Max</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> a &gt; b ? (a &gt; c ? a : c) : (b &gt; c ? b : c);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MaxSubseqSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> MaxLeftSum = <span class="hljs-number">0</span>, MaxRightSum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> MaxLeftBorderSum = <span class="hljs-number">0</span>, MaxRightBorderSum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">int</span> LeftBorderSum = <span class="hljs-number">0</span>, RightBorderSum = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-keyword">if</span>(left == right)<br>    &#123;<br>        <span class="hljs-keyword">if</span>(a[left] &gt; <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> a[<span class="hljs-number">0</span>];<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">int</span> center = (left + right) / <span class="hljs-number">2</span>;<br><br>    MaxLeftSum = MaxSubseqSum(a, left, center);<br>    MaxRightSum = MaxSubseqSum(a, center + <span class="hljs-number">1</span>, right);<br><br>    <span class="hljs-comment">/* 左半边最大和 */</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = center; i &gt;= left; i--)<br>    &#123;<br>        LeftBorderSum += a[i];<br>        <span class="hljs-keyword">if</span> (LeftBorderSum &gt; MaxLeftBorderSum)<br>            MaxLeftBorderSum = LeftBorderSum;<br>    &#125;<br>    <span class="hljs-comment">/* 右半边最大和 */</span><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = center + <span class="hljs-number">1</span>; i &lt;= right; i++)<br>    &#123;<br>        RightBorderSum += a[i];<br>        <span class="hljs-keyword">if</span> (RightBorderSum &gt; MaxRightBorderSum)<br>            MaxRightBorderSum = RightBorderSum;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> Max(MaxLeftSum, MaxRightSum, MaxLeftBorderSum + MaxRightBorderSum);<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>在线处理（贪心法）：O(n)</p>
+  <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MaxSubseqSum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[], <span class="hljs-keyword">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">int</span> ThisSum = <span class="hljs-number">0</span>, MaxSum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>    &#123;<br>        ThisSum += a[i];<br>        <span class="hljs-keyword">if</span>(ThisSum &gt; MaxSum)<br>            MaxSum = ThisSum;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(ThisSum &lt; <span class="hljs-number">0</span>)<br>            ThisSum = <span class="hljs-number">0</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> MaxSum;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    Copyright <i class="iconfont icon-copyright"></i> 2021 <strong>向阳</strong>
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
