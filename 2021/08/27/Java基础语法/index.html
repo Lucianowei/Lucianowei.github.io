@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/sun.png">
+  <link rel="icon" href="/img/sun.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="向阳">
+  <meta name="keywords" content="">
+  
+  <title>Java基础语法 - 向阳の小窝</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/atom-one-dark.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":100,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>向阳の小窝</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/banner_img.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java基础语法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-27 10:41" pubdate>
+        2021年8月27日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      791 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java基础语法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年8月27日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="一、变量"><a href="#一、变量" class="headerlink" title="一、变量"></a>一、变量</h2><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><ol>
+<li>命名规则<ul>
+<li>标识符可以由字母、数字、下划线(_)和美元符($)组成，但不能以数字开头</li>
+<li>区分大小写</li>
+<li>不能是Java的关键字和保留字</li>
+</ul>
+</li>
+<li>好的习惯<ul>
+<li>标识符的命名最好能反应其作用</li>
+<li>类名是以大写字母开头的名词</li>
+<li>变量：驼峰命名法</li>
+</ul>
+</li>
+</ol>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><table>
+    <tr>
+        <td>abstract</td>
+        <td>boolean</td>
+        <td>break</td>
+        <td>byte</td>
+        <td>case</td>
+        <td>catch</td>
+    </tr>
+    <tr>
+        <td>char</td>
+        <td>class</td>
+        <td>continue</td>
+        <td>default</td>
+        <td>do</td>
+        <td>double</td>
+    </tr>
+    <tr>
+        <td>else</td>
+        <td>extends</td>
+        <td>false</td>
+        <td>final</td>
+        <td>finally</td>
+        <td>float</td>
+    </tr>
+    <tr>
+        <td>for</td>
+        <td>if</td>
+        <td>implements</td>
+        <td>import</td>
+        <td>native</td>
+        <td>int</td>
+    </tr>
+    <tr>
+        <td>interface</td>
+        <td>long</td>
+        <td>instanceof</td>
+        <td>new</td>
+        <td>null</td>
+        <td>package</td>
+    </tr>
+    <tr>
+        <td>private</td>
+        <td>protected</td>
+        <td>public</td>
+        <td>return</td>
+        <td>short</td>
+        <td>static</td>
+    </tr>
+    <tr>
+        <td>super</td>
+        <td>switch</td>
+        <td>synchronized</td>
+        <td>this</td>
+        <td>throw</td>
+        <td>throws</td>
+    </tr>
+    <tr>
+        <td>transient</td>
+        <td>true</td>
+        <td>try</td>
+        <td>void</td>
+        <td>volatile</td>
+        <td>while</td>
+    </tr>
+</table>
+
+<p>注：以上关键字根据字母顺序排序</p>
+<p>Java 中还有部分保留字</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ol>
+<li><p>什么是变量？</p>
+<ul>
+<li>数据临时存储的场所</li>
+<li>有变量类型、变量名、变量值三个元素</li>
+</ul>
+</li>
+<li><p>命名规则</p>
+<ul>
+<li>参照标识符的命名规则</li>
+</ul>
+</li>
+</ol>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ol>
+<li>基本数据类型<ul>
+<li>数值型<ul>
+<li>整数类型：<code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code></li>
+<li>浮点类型：<code>float</code>, <code>double</code></li>
+</ul>
+</li>
+<li>字符型：<code>char</code></li>
+<li>布尔型：<code>boolean</code></li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>数组</li>
+<li>类</li>
+<li>接口</li>
+</ul>
+</li>
+</ol>
+<p>字面值</p>
+<div class="hljs code-wrapper"><pre><code>- 整型字面值
+- 浮点字面值（注意 float 字面值后要加 f）
+- 字符字面值：用单引号包括
+- 布尔类型字面值
+- 字符串字面值：字符串属于类，用双引号包括
+</code></pre></div>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><ol>
+<li>自动类型转换</li>
+<li>强制类型转换：把数据表示范围大的赋值给小的，格式：(Data Type) 数值</li>
+</ol>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p><code>final int A = 1;</code></p>
+<ul>
+<li><p>常量定义后不能用赋值运算符修改</p>
+</li>
+<li><p>常量命名一般全部使用大写，多个单词使用下划线分隔</p>
+</li>
+</ul>
+<h2 id="二、运算符"><a href="#二、运算符" class="headerlink" title="二、运算符"></a>二、运算符</h2><p>​    表达式：由运算符和操作数组成</p>
+<ol>
+<li>算数运算符：<code>+, -, *, /, %, ++, --</code></li>
+<li>赋值运算符：<code>=</code>, 复合赋值</li>
+<li>关系运算符：<code>&gt;, &lt;, &gt;=, &lt;=, ==, !=</code>, 比较结果为布尔值</li>
+<li>逻辑运算符：<code>&amp;&amp; 或 &amp;, || 或 |, !</code></li>
+<li>条件运算符：<code>? : </code>, 布尔表达式? 表达式1:表达式2</li>
+<li>位运算符</li>
+</ol>
+<h2 id="三、流程控制"><a href="#三、流程控制" class="headerlink" title="三、流程控制"></a>三、流程控制</h2><ol>
+<li>顺序结构</li>
+<li>选择结构<ul>
+<li>if-else 结构</li>
+<li>switch 结构</li>
+</ul>
+</li>
+<li>循环结构<ul>
+<li>while</li>
+<li>do-while</li>
+<li>for</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>break 语句</li>
+<li>continue 语句</li>
+</ul>
+<h2 id="四、数组"><a href="#四、数组" class="headerlink" title="四、数组"></a>四、数组</h2><ol>
+<li><p>什么是数组？</p>
+<p>相同类型的数据按顺序组成的一种引用数据类型。</p>
+</li>
+<li><p>一维数组</p>
+<ul>
+<li>数组声明创建：数据类型[] 数组名 = new 数组类型[数组长度]</li>
+<li>数组初始化：声明时赋值</li>
+<li>数组元素的引用：下标从零开始</li>
+<li>数组长度：array.length</li>
+</ul>
+</li>
+<li><p>多维数组</p>
+</li>
+</ol>
+<ul>
+<li><p>foreach 循环</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(ElementType element: arrayName) &#123;<br>	System.out.println(element);<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>冒泡排序</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BubbleSort</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span>[] bubbleSort(<span class="hljs-keyword">int</span>[] a) &#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length - <span class="hljs-number">1</span>; i++) &#123;<br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; a.length - i - <span class="hljs-number">1</span>; j++) &#123;<br>                <span class="hljs-keyword">if</span>(a[j] &gt; a[j + <span class="hljs-number">1</span>]) &#123;<br>                    <span class="hljs-keyword">int</span> temp = a[j];<br>                    a[j] = a[j + <span class="hljs-number">1</span>];<br>                    a[j + <span class="hljs-number">1</span>] = temp;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> a;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+</ul>
+<h2 id="五、方法"><a href="#五、方法" class="headerlink" title="五、方法"></a>五、方法</h2><ol>
+<li><p>什么是方法？</p>
+<p>用来解决一类问题的代码的有序组合，是一个功能模块。</p>
+</li>
+<li><p>方法的声明和调用</p>
+<ul>
+<li><p>语法格式：</p>
+<p>访问修饰符 返回类型 方法名(参数列表) {</p>
+<p>​    方法体</p>
+<p>}</p>
+</li>
+<li><p>类名打点调用</p>
+</li>
+</ul>
+</li>
+<li><p>方法重载</p>
+<p>方法名相同，参数列表不同，不考虑返回类型。</p>
+</li>
+<li><p>可变参数列表</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span>... n)</span></span>&#123;&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>注：可变参数一定在最后</p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java%E5%AD%A6%E4%B9%A0/">Java学习</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/08/27/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java面向对象</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/26/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                        <span class="hidden-mobile">数据结构与算法学习（一）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    Copyright <i class="iconfont icon-copyright"></i> 2021 <strong>向阳</strong>
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
