@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      28 字
+      1.2k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      13
        分钟
     </span>
   
@@ -229,19 +229,191 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月27日 晚上
+                  本文最后更新于：2021年8月29日 早上
                 
               </p>
             
             <div class="markdown-body">
-              <p>📝 任务清单</p>
+              <h2 id="一、类和对象"><a href="#一、类和对象" class="headerlink" title="一、类和对象"></a>一、类和对象</h2><ol>
+<li><p>对象</p>
+<p>万物皆对象，现实存在的客观事物，面向对象即关注事物的信息</p>
+</li>
+<li><p>类</p>
+<p>类是对象的模板，确定对象拥有的特征（属性）和行为（方法），对象是类的实例</p>
+</li>
+<li><p>创建类和对象</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> </span>&#123;<br>    <span class="hljs-comment">//属性</span><br>    String name;<br>    <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-keyword">double</span> weight;<br>    String species;<br>    <br>    <span class="hljs-comment">//方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span> </span>&#123;<br>        <br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sleep</span><span class="hljs-params">()</span> </span>&#123;<br>        <br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>实例化对象：<code>Dog dog = new Dog();</code></p>
+</li>
+<li><p>构造方法</p>
+<p>public 构造方法名(参数) {</p>
+<p>​    初始化代码块 </p>
+<p>}</p>
+<p>当没有指定构造方法时，系统会自动添加无参的构造方法；而当有了构造方法时，系统不会自动添加无参的构造方法。所以一般都会先写一个无参构造方法。</p>
+</li>
+<li><p>this 关键字</p>
+<p>代表当前对象</p>
+<p>可通过 <code>this()</code>在构造方法中调用另一个构造方法</p>
+</li>
+</ol>
+<h2 id="二、封装"><a href="#二、封装" class="headerlink" title="二、封装"></a>二、封装</h2><ol>
+<li><p>什么是封装？</p>
+<p>将类的某些信息隐藏在类的内部，不允许外部程序直接访问，只能通过方法来对隐藏的信息进行访问和操作。简单来讲，就是隐藏对象的信息，留出访问的接口。</p>
+</li>
+<li><p>封装的实现</p>
 <ul>
-<li><input disabled="" type="checkbox"> 类和对象</li>
-<li><input disabled="" type="checkbox"> 继承</li>
-<li><input disabled="" type="checkbox"> 封装</li>
-<li><input disabled="" type="checkbox"> 多态</li>
+<li>修改属性的访问修饰符为 private</li>
+<li>创建 getter/setter 方法</li>
+<li>在getter/setter 方法加入属性的控制语句</li>
 </ul>
-<h2 id="一、类和对象"><a href="#一、类和对象" class="headerlink" title="一、类和对象"></a>一、类和对象</h2><h2 id="二、继承"><a href="#二、继承" class="headerlink" title="二、继承"></a>二、继承</h2><h2 id="三、封装"><a href="#三、封装" class="headerlink" title="三、封装"></a>三、封装</h2><h2 id="四、多态"><a href="#四、多态" class="headerlink" title="四、多态"></a>四、多态</h2>
+</li>
+<li><p>static 关键字</p>
+<ul>
+<li>修饰变量：静态成员，属于类，对象共享；类加载时产生，销毁时释放，生命周期长。（不能加在局部变量前）</li>
+<li>修饰方法：静态方法，静态方法不能直接访问同一个类非静态成员</li>
+<li>this 和 super 不能在静态方法中使用</li>
+</ul>
+</li>
+<li><p>代码块</p>
+<ul>
+<li>普通代码块：顺序执行</li>
+<li>构造代码块（在类中书写）：创建对象时调用，优先于构造方法执行</li>
+<li>静态代码块：在代码块前加上 static 关键字，只执行一次</li>
+</ul>
+</li>
+</ol>
+<h2 id="三、继承"><a href="#三、继承" class="headerlink" title="三、继承"></a>三、继承</h2><ol>
+<li><p>什么是继承？</p>
+<p>继承是一种类与类的关系，子类获取父类的所有属性和方法的机制。</p>
+</li>
+<li><p>继承的实现</p>
+<ul>
+<li><p>编写父类</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>&#123;<br>	公共的属性和方法<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>编写子类，继承父类</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>&#123; <span class="hljs-comment">//只能继承一个类</span><br>    子类特有的属性和方法<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<p>子类无法访问父类<strong>私有</strong>成员，父类不可以访问子类特有成员</p>
+</li>
+</ul>
+</li>
+<li><p>方法的重写</p>
+<ul>
+<li>在子类中定义，方法名，参数类型、顺序、个数都相同</li>
+<li>返回值和访问修饰符允许有变化，有一定条件：返回值为引用类型，访问修饰符不允许缩小</li>
+</ul>
+</li>
+<li><p>super 关键字</p>
+<ul>
+<li>super. : 父类对象的引用</li>
+<li>super() : 调用父类构造方法，必须写在第一行</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>继承后的初始化顺序：父类静态成员 -&gt; 子类静态成员 -&gt; 父类对象构造 -&gt; 子类构造对象</p>
+</li>
+<li><p>访问修饰符</p>
+<table>
+<thead>
+<tr>
+<th align="center">访问修饰符</th>
+<th align="center">本类</th>
+<th align="center">同包</th>
+<th align="center">子类</th>
+<th align="center">其它</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">private</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">默认</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">public</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ol start="5">
+<li>Object 类<ul>
+<li><code>boolean equals(Object obj)</code>: 判断两个对象的引用是否一致</li>
+<li><code>String toString()</code>: 打印类的字符串表现形式</li>
+</ul>
+</li>
+<li>final 关键字<ul>
+<li>修饰类：防止继承</li>
+<li>修饰方法：防止重写（不能修饰构造方法）</li>
+<li>修饰变量：<ul>
+<li>方法内的局部变量：在使用之前进初始化赋值</li>
+<li>类成员变量：只能在定义时、构造方法、构造代码块中进行初始化</li>
+<li>修饰基本数据类型后值不允许修改，修饰引用变量后不能再指向另一个对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、多态"><a href="#四、多态" class="headerlink" title="四、多态"></a>四、多态</h2><ol>
+<li><p>什么是多态？</p>
+<p>同一操作作用于不同的对象，可以有不同的解释，产生不同的执行结果。</p>
+</li>
+<li><p>向上转型</p>
+<p>父类引用指向子类实例</p>
+</li>
+<li><p>向下转型（强制转换）</p>
+<p>子类引用指向父类对象，可以调用子类特有的方法</p>
+</li>
+<li><p>instanceof 运算符</p>
+</li>
+<li><p>抽象</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>&#123;<br>	<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>抽象类：不允许实例化，可以通过向上转型，指向子类实例</li>
+<li>抽象方法：不允许包含方法体，子类需要重写父类的抽象方法</li>
+</ul>
+</li>
+<li><p>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Iphoto</span> </span>&#123;<br>    <br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Camera</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IPhoto</span> </span>&#123;<br>    实现接口的方法<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+<ul>
+<li>接口访问修饰符：public 和 默认</li>
+<li>接口里的方法默认为抽象方法，常量加上了 public final</li>
+</ul>
+</li>
+</ol>
+<h2 id="五、内部类"><a href="#五、内部类" class="headerlink" title="五、内部类"></a>五、内部类</h2><ol>
+<li><p>成员内部类：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">People</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Heart <span class="hljs-title">getHeart</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Heart();<br>    &#125;<br>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Heart</span> </span>&#123;<br>		<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">beat</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> age + <span class="hljs-string">&quot;岁的人心脏在跳动&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>静态内部类</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">People</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Heart <span class="hljs-title">getHeart</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Heart();<br>    &#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Heart</span> </span>&#123;<br>		<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">beat</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> age + <span class="hljs-string">&quot;岁的人心脏在跳动&quot;</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>局部内部类</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">People</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getHeart</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Heart</span> </span>&#123;<br>            <br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Heart();<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+<li><p>匿名内部类</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">new</span> People() &#123;<br>    <br>&#125;<br></code></pre></div></td></tr></table></figure></li>
+</ol>
+
             </div>
             <hr>
             <div>
